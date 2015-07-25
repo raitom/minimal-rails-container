@@ -15,3 +15,6 @@ RUN rm -rf /var/cache/apk/*
 #Install API
 RUN mkdir /usr/edenapi
 RUN git clone https://github.com/EdenServers/EdenAPI.git /usr/edenapi
+
+WORKDIR /usr/edenapi
+RUN bundle install --without development test
