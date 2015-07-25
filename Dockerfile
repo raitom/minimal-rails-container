@@ -6,7 +6,7 @@ CMD ["/sbin/my_init"]
 # Install base packages
 RUN apt-get update && \
     apt-get -y upgrade && \
-    apt-get install -y build-essential git libxml2-dev libxslt1-dev nodejs software-properties-common
+    apt-get install -y build-essential git libxml2-dev libxslt1-dev nodejs software-properties-common python-software-properties
 
 # Install Ruby 2.2.2
 RUN apt-add-repository ppa:brightbox/ruby-ng && \
