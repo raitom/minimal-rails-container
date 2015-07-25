@@ -4,7 +4,7 @@ MAINTAINER EdenServers
 # Install base packages
 RUN apk update && \
     apk upgrade && \
-    apk add wget bash git ruby-dev build-base nodejs
+    apk add wget bash git ruby-dev build-base nodejs curl openssl
 
 # Install ruby and ruby-bundler
 RUN apk add ruby ruby-io-console ruby-bundler
