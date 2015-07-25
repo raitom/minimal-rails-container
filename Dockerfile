@@ -4,7 +4,7 @@ MAINTAINER EdenServers
 # Install base packages
 RUN apk update && \
     apk upgrade && \
-    apk add wget bash git ruby-dev build-base libxml2-dev nodejs
+    apk add wget bash git ruby-dev build-base libxml2-dev libxslt nodejs
 
 # Install ruby and ruby-bundler
 RUN apk add ruby ruby-io-console ruby-bundler
@@ -17,4 +17,5 @@ RUN mkdir /usr/edenapi
 RUN git clone https://github.com/EdenServers/EdenAPI.git /usr/edenapi
 
 WORKDIR /usr/edenapi
+RUN gem install nokogiri
 RUN bundle install --without development test
