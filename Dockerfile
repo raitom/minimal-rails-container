@@ -14,7 +14,7 @@ RUN mkdir /usr/edenapi
 RUN git clone https://github.com/EdenServers/EdenAPI.git /usr/edenapi
 
 #nokogiri requirements
-RUN apk add ruby-nokogiri
+RUN apk add libxml2-dev libxslt-dev
 
 # Clean APK cache
 RUN rm -rf /var/cache/apk/*
