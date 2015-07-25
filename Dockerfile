@@ -10,7 +10,7 @@ RUN apt-get update && \
 
 # Install Ruby 2.2.2
 RUN apt-add-repository ppa:brightbox/ruby-ng && \
-    apt-get update \
+    apt-get update && \
     apt-get install -y ruby2.2 ruby-switch
 
 RUN ruby-switch --set ruby2.2
