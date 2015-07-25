@@ -10,7 +10,7 @@ RUN apk update && \
 RUN apk add ruby ruby-io-console ruby-bundler
 
 #nokogiri requirements
-RUN apk add ruby-nokogiri
+RUN apk add ruby-nokogiri zlib
 
 # Clean APK cache
 RUN rm -rf /var/cache/apk/*
