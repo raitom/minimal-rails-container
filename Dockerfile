@@ -9,15 +9,15 @@ RUN apk update && \
 # Install ruby and ruby-bundler
 RUN apk add ruby ruby-io-console ruby-bundler
 
-#nokogiri requirements
-RUN apk add ruby-nokogiri zlib
-
-# Clean APK cache
-RUN rm -rf /var/cache/apk/*
-
 #Install API
 RUN mkdir /usr/edenapi
 RUN git clone https://github.com/EdenServers/EdenAPI.git /usr/edenapi
+
+#nokogiri requirements
+RUN apk add ruby-nokogiri libxml2-dev
+
+# Clean APK cache
+RUN rm -rf /var/cache/apk/*
 
 WORKDIR /usr/edenapi
 RUN gem install nokogiri
