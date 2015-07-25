@@ -21,6 +21,9 @@ RUN gem install nokogiri --no-rdoc --no-ri -- --use-system-libraries
 RUN apk add sqlite-dev
 RUN gem install --no-rdoc --no-ri sqlite3
 
+# passenger requirements
+RUN gem install --no-rdoc --no-ri tzinfo-data
+
 # Clean APK cache
 RUN rm -rf /var/cache/apk/*
 
