@@ -1,24 +1,26 @@
-FROM alpine:3.2
+FROM phusion/baseimage:0.9.9
 MAINTAINER EdenServers
 
-# Install base packages
-RUN apk update && \
-    apk upgrade && \
-    apk add wget bash git ruby-dev build-base nodejs
+CMD ["/sbin/my_init"]
 
-# Install ruby and ruby-bundler
-RUN apk add ruby ruby-io-console ruby-bundler
+# Install base packages
+RUN apt-get update && \
+    apt-get -y upgrade && \
+    apt-get install -y build-essential git libxml2-dev libxslt1-dev nodejs software-properties-common
+
+# Install Ruby 2.2.2
+RUN apt-add-repository ppa:brightbox/ruby-ng && \
+    apt-get update \
+    apt-get install -y ruby2.2 ruby-switch
+
+RUN ruby-switch --set ruby2.2
+
+# Clean apt
+RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 #Install API
 RUN mkdir /usr/edenapi
 RUN git clone https://github.com/EdenServers/EdenAPI.git /usr/edenapi
 
-#nokogiri requirements
-RUN apk add ruby-nokogiri libxml2-dev
-
-# Clean APK cache
-RUN rm -rf /var/cache/apk/*
-
 WORKDIR /usr/edenapi
-RUN gem install nokogiri
 RUN bundle install --without development test
