@@ -18,7 +18,7 @@ RUN apk add libxml2-dev libxslt-dev
 RUN gem install nokogiri --no-rdoc --no-ri -- --use-system-libraries
 
 #sqlite3 requirements
-RUN apk add sqlite
+RUN apk add sqlite-dev
 RUN gem install --no-rdoc --no-ri sqlite3
 
 # Clean APK cache
