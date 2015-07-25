@@ -1,5 +1,5 @@
 #!/bin/bash
-cd /home/edenapi && git pull
-cd /home/edenapi && bundle install --without development test
-cd /home/edenapi && RAILS_ENV=production bundle exec rake db:migrate
-cd /home/edenapi && foreman start -f Procfile.production
+cd /usr/edenapi && git pull
+cd /usr/edenapi && bundle install --without development test
+cd /usr/edenapi && RAILS_ENV=production bundle exec rake db:migrate
+cd /usr/edenapi && foreman start -f Procfile.production
