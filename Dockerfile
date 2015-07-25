@@ -14,11 +14,11 @@ RUN mkdir /usr/edenapi
 RUN git clone https://github.com/EdenServers/EdenAPI.git /usr/edenapi
 
 #nokogiri requirements
-RUN apk add libxml2 libxml2-dev libxslt libxslt-dev
+RUN apk add ruby-nokogiri
 
 # Clean APK cache
 RUN rm -rf /var/cache/apk/*
 
 WORKDIR /usr/edenapi
-RUN gem install nokogiri -- --use-system-libraries
+RUN gem install nokogiri -- --use-system-libraries --no-rdoc --no-ri
 RUN bundle install --without development test
