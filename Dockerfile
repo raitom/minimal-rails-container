@@ -20,5 +20,5 @@ RUN apk add libxml2 libxml2-dev libxslt libxslt-dev
 RUN rm -rf /var/cache/apk/*
 
 WORKDIR /usr/edenapi
-RUN gem install nokogiri
+RUN gem install nokogiri -- --use-system-libraries
 RUN bundle install --without development test
